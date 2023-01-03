@@ -2,6 +2,7 @@ package org.example;
 
 import java.time.Duration;
 import java.util.List;
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
@@ -24,6 +25,13 @@ class AddDeleteElementIT {
         driver.get("http://the-internet.herokuapp.com/add_remove_elements/");
     }
 
+    @AfterAll
+    static void teardown() {
+
+        //Cleanup
+        driver.close();
+    }
+
     @Test
     void testingAddElement() {
 
@@ -38,9 +46,6 @@ class AddDeleteElementIT {
 
         //verify
         assertEquals(expectedNumberDeleteButtons, actualNumberDeleteButtons);
-
-        //Cleanup
-        driver.close();
     }
 
     @Test
@@ -57,9 +62,6 @@ class AddDeleteElementIT {
         Integer expectedNumberDeleteButtons = 0;
         //verify
         assertEquals(expectedNumberDeleteButtons, actualNumberDeleteButtons);
-
-        //Cleanup
-        driver.close();
     }
 }
 
