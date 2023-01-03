@@ -2,7 +2,7 @@
 
 The below are tested using Selenium
 
-* Add and deleting elements from a page
+* Add and delete elements from a page
     * Using:  http://the-internet.herokuapp.com/add_remove_elements/
     * Test #1, testingAddElement() , adds and element then confirms it was added
     * Test #2, testingDeleteElement() , adds an element, deletes it and then confirms it was delete
