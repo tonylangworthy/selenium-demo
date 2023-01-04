@@ -13,4 +13,4 @@ The below are tested using Selenium
 
 * WYSIWYG formats contents of a text box in various ways
     * Using:  http://the-internet.herokuapp.com/tinymce
-    * ??
+    * Using Java code, inserts text into the editor, and the test verifies that the text is entered correctly
