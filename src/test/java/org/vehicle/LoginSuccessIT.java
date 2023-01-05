@@ -50,9 +50,18 @@ public class LoginSuccessIT {
 
         List<WebElement> numLogOuts = driver.findElements(By.linkText("Log Out"));
 
+        List<WebElement> logOutbyClass = driver.findElements(By.className("dropdown-toggle"));
 
-        int actualNumberLogElements = numLogOuts.size();
+        int actualNumberLogElements = 0;
+        for (WebElement oneElement : logOutbyClass) {
+            System.out.println("one element is:  " + oneElement);
+            System.out.println("and its text is:  " + oneElement.getText());
+            if (oneElement.getText().equals("Tony Langworthy")) {
+                actualNumberLogElements = 1;
+            }
+        }
 
+        System.out.println("logOUtbyClass is:  " + logOutbyClass);
         int expectedNumberLogElements = 1;
 
         //verify
