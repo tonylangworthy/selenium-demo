@@ -52,6 +52,18 @@ public class LoginSuccessIT {
 
         List<WebElement> logOutbyClass = driver.findElements(By.className("dropdown-toggle"));
 
+        // Find the dashboard menu element by id
+        WebElement dashboardElement = driver.findElement(By.id("dashboard"));
+
+        // My thought here is that, if that if the class attribute contains the "active" class name,
+        // that proves that the user successfully logged into the dashboard
+        String className = dashboardElement.getDomAttribute("class");
+        System.out.println("class name: " + className);
+
+
+        String css = dashboardElement.getCssValue("active");
+        System.out.println("Css value: " + css);
+
         int actualNumberLogElements = 0;
         for (WebElement oneElement : logOutbyClass) {
             System.out.println("one element is:  " + oneElement);
