@@ -33,7 +33,15 @@ class AddDeleteElementIT {
     static void teardown() {
 
         //Cleanup
+        System.out.println("this needs to slow it down");
+        try {
+            Thread.sleep(6000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
         driver.close();
+        driver.quit();
+        System.out.println("after quitting");
     }
 
     @Test
@@ -47,7 +55,6 @@ class AddDeleteElementIT {
         Integer expectedNumberDeleteButtons = 1;
 
         System.out.println("the number of added manually elements is:  " + elements.size());
-
         //verify
         assertEquals(expectedNumberDeleteButtons, actualNumberDeleteButtons);
     }
