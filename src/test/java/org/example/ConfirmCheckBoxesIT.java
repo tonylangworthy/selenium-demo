@@ -3,6 +3,7 @@ package org.example;
 import java.time.Duration;
 import java.util.List;
 import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
@@ -33,7 +34,9 @@ class ConfirmCheckBoxesIT {
     static void teardown() {
 
         //Cleanup
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         driver.close();
+        driver.quit();
     }
 
     @Test

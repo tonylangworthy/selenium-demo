@@ -1,5 +1,7 @@
 package org.example;
 
+import java.time.Duration;
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
@@ -25,6 +27,15 @@ class WysiwygEditorIT {
         driver.manage().window().maximize();
 
         driver.get("http://the-internet.herokuapp.com/tinymce");
+    }
+
+    @AfterAll
+    static void teardown() {
+
+        //Cleanup
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        driver.close();
+        driver.quit();
     }
 
     @Test

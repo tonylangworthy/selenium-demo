@@ -33,7 +33,9 @@ class AddDeleteElementIT {
     static void teardown() {
 
         //Cleanup
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         driver.close();
+        driver.quit();
     }
 
     @Test
