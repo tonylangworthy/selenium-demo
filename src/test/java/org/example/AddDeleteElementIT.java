@@ -10,6 +10,7 @@ import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -19,7 +20,10 @@ class AddDeleteElementIT {
     @BeforeAll
     static void setUp() {
         //Setup
-        driver = new ChromeDriver();
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--remote-allow-origins=*");
+
+        driver = new ChromeDriver(options);
         driver.manage().window().setSize(new Dimension(920, 155));
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         driver.get("http://the-internet.herokuapp.com/add_remove_elements/");
